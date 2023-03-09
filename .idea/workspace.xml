@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8bd917aa-21c1-4af5-905f-176140e98f52" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/products/productsControllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/products/productsControllers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/users/usersControllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/users/usersControllers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/models/products/producstModels.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/products/producstModels.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/users/usersRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/users/usersRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/products/productsServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/products/productsServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/home/HomeProducts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/home/HomeProducts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/shared/molecules/CardProductsv2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/shared/molecules/CardProductsv2.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/products/GetListProducts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/products/GetListProducts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/slices/products/listProductsSlice.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/slices/products/listProductsSlice.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router/AppRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/AppRouter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/styles/shared/molecules/customCard/customCardProductv2.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/shared/molecules/customCard/customCardProductv2.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2EMsn44SvBkP9ovGo2Ez3nm9NS1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/josue/Documents/maplesyrup&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8bd917aa-21c1-4af5-905f-176140e98f52" name="Changes" comment="" />
+      <created>1662416956183</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662416956183</updated>
+      <workItem from="1662416962945" duration="35000" />
+      <workItem from="1665514413155" duration="91000" />
+      <workItem from="1665706797846" duration="64000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

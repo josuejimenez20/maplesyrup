@@ -1,0 +1,130 @@
+#register_form {
+    /* Centrar el formulario en la página */
+    margin: 0 auto;
+    width: 99%;
+    /* Esquema del formulario */
+    padding: 1em 0 0 10%;
+    border: 3px solid #CCC;
+    border-radius: 1em;
+  }
+
+  .labelInput {
+    /* Tamaño y alineación uniforme */
+    display: inline-block;
+    text-align: center;
+  }
+
+  .field_class {
+    /* Para asegurarse de que todos los campos de texto tienen la misma configuración de letra
+     Por defecto, las áreas de texto tienen un tipo de letra monoespaciada */
+    font: 1em sans-serif;
+
+    /* Tamaño uniforme del campo de texto */
+    width: 300px;
+    box-sizing: border-box;
+
+    /* Hacer coincidir los bordes del campo del formulario */
+    border: 1px solid #999;
+    margin: 0 6px 0 6px;
+  }
+
+#title {
+    letter-spacing: .5vw;
+    font-family: 'system-ui';
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#user_gender{
+    width: 11em;
+}
+
+.form_class {
+    width: 1200px;
+    padding: 25px;
+    border-radius: 8px;
+    background-color: white;
+    font-family: 'system-ui';
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.3);
+}
+
+.form_div {
+    text-transform: uppercase;
+}
+
+.form_div>label {
+    letter-spacing: 0 auto;
+    font-size: 1rem;
+}
+
+.info_div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.info_div {
+    letter-spacing: 0 auto;
+}
+
+.field_class {
+    width: 22%;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px 0px;
+    text-indent: 6px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'system-ui';
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.data_important{
+    border-color: red;
+}
+
+.data_important-label{
+    margin: 0 0 0 15%;
+}
+
+.data_important-password{
+    margin: 0 0 0 5em;
+}
+
+.submit_class {
+    border-style: none;
+    border-radius: 5px;
+    background-color: #fbc8ee;
+    padding: 8px 20px;
+    font-family: 'system-ui';
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+footer {
+    height: 10vh;
+    background-color: pink;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -5px -5px 10px rgb(0, 0, 0, 0.3);
+}
+
+footer>p {
+    text-align: center;
+    font-family: 'system-ui';
+    letter-spacing: 3px;
+}
+
+footer>p>a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}

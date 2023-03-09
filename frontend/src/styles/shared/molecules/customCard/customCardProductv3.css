@@ -1,0 +1,141 @@
+.container{
+    position: relative;
+}
+.container .card{
+    position:relative;
+    width: 320px;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+
+}
+.container .card:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #facc6a;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+.container .card:hover::before{
+    clip-path: circle(300px at 80% -20%);
+}
+
+
+.container .card:after{
+    content: 'Maple Syrup';
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 8em;
+    font-weight: 800;
+    font-style: italic;
+    color:  #ffffff0a;
+}
+.container .card .imageBox{
+    position: absolute;
+    top: 50%;
+    transform:  translateY(-50%);
+    z-index: 10000;
+    width: 100%;
+    height: 220px;
+    transition: 0.7s;
+}
+.container .card:hover .imageBox{
+    position: absolute;
+    top: 0%;
+    transform:  translateY(0%) translateX(0%);
+}
+.container .card .imageBox img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    width: 220px;
+}
+.container .card .contentBox{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    transition: 0.7s;
+    z-index: 10;
+}
+.container .card:hover .contentBox{
+    height: 250px;
+}
+.container .card .contentBox h2{
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+}
+.container .card .contentBox .price,
+.container .card .contentBox .amount,
+.container .card .contentBox .description
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+}
+.container .card .contentBox .price h3,
+.container .card .contentBox .amount h3,
+.container .card .contentBox .description h3{
+    
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+.container .card .contentBox .price span,
+.container .card .contentBox .amount span,
+.container .card .contentBox .description span{
+    
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    font-style: bold;
+    display: inline-block;
+    color: #fff;
+    margin: 0 5px;
+    transition: 0.5s;
+    color: #fff;
+}
+.buttonCard, .buttonLink{
+    letter-spacing: 5px;
+    border: 2px solid #232323;
+    padding: 12px;
+    width: 190px;
+    cursor: pointer;
+    background: #facc6a;
+    color: #2e2e2e;
+    transition: 0.5s ease;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.buttonCard:hover{
+    background: transparent;
+    border: 2px solid #facc6a;
+    box-shadow: 0 0 10px 0 #facc6a inset, 0 0 10px 4px #facc6a;
+    border-radius: 10px;
+    color: #facc6a;
+}
+
+.buttonLink:hover{
+    
+    margin: 1em 0 0;
+    background: transparent;
+    border: 2px solid #facc6a;
+    box-shadow: 0 0 10px 0 #facc6a inset, 0 0 10px 4px #facc6a;
+    border-radius: 10px;
+    color: #facc6a;
+}

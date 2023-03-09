@@ -1,0 +1,97 @@
+
+ *, *::after, *::before {
+	 padding: 0;
+	 margin: 0;
+	 box-sizing: border-box;
+}
+
+ .content {
+	 height: 100vh;
+	 background: linear-gradient(to bottom right, aqua, lightblue);
+	 text-align: center;
+	 padding: 4em 0;
+}
+ .cards {
+	 display: flex;
+	 justify-content: space-evenly;
+}
+ .card {
+	 width: 60%;
+	 position: relative;
+	 height: 5em;
+}
+ .card__side {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 15em;
+	 backface-visibility: hidden;
+	 transition: all 0.6s ease;
+	 box-shadow: 1em 1em 2em rgba(0, 0, 0, .2);
+}
+ .card__side--front {
+	 background-color: #fff;
+}
+ .card__side--back {
+	 color: black;
+	 transform: rotateY(180deg);
+}
+ .card__side--back-1 {
+	 background-image: linear-gradient(to right bottom, #ffffff, #ffffff);
+}
+ .card:hover .card__side--front {
+	 transform: rotateY(-180deg);
+}
+ .card:hover .card__side--back {
+	 transform: rotate(0);
+}
+ .card__description {
+	 text-transform: uppercase;
+	 font-size: 1em;
+	 padding: 1em 0;
+}
+
+ .card__description img {
+	width: 100%;
+	height: 13em;
+}
+.tittle, .description {
+	font-family: 'Knewave', cursive;
+	text-align: center;
+}
+
+.containerButtons{
+	width: 100%;
+	height: 2.5em;
+	background: transparent;
+	display: flex;
+	justify-content: space-around;
+}
+
+.buttonsOptions{
+	font-family: 'Knewave', cursive;
+	width: 80%;
+	height: auto;
+	font-size: 1.5em;
+	margin: 0 1em 0 1em;
+}
+
+/*phone*/
+@media only screen and (max-width: 600px) {
+	
+	.card {
+		width: 20%;
+			position: relative;
+			height: 5em;
+			margin: 0 0 40em 0 ;
+	   }
+
+	.card:first-child {
+		width: 100%;
+		position: relative;
+		height: 1em;
+		margin: 2em 0 0 0;
+   }
+
+ }
