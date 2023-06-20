@@ -6,7 +6,9 @@ You'll should clone reposirory.
 Install packages npm
   - npm install
 
-Create a database called "maplesyrup".
+Create a database called "maplesyrup"
+  - import the file maplesyrup.sql from repository at
+    your database service.
 
 Run backend 
   - node app.js in the file "backend" or
