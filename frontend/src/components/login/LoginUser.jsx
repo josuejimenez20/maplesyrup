@@ -17,6 +17,7 @@ export function LoginUser() {
             email: data.target.email.value,
             password: data.target.password.value,
         }
+        console.log(formData);
         dispatch(loginUser(formData));
     }
 

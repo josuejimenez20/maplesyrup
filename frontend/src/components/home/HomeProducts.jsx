@@ -18,6 +18,10 @@ export function HomeProducts() {
         dispatch(GetListProducts());
     }, [])
 
+    useEffect(() => {
+        console.log(error);
+    }, [])
+
     if (error) {
         return (
             <h2 className=' alert alert-danger row justify-content-center'>Error al obtener los productos</h2>

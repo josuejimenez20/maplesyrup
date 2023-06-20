@@ -3,7 +3,7 @@ let conexion = mysql.createConnection({
     host: 'localhost',
     database: 'maplesyrup',
     user: 'root',
-    password: '',
+    password: 'johnwick2003',
 });
 
 const dbConnection = () => {
