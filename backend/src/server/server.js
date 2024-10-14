@@ -8,9 +8,9 @@ class Server {
     this.app = express();
     this.port = process.env.PORT || 3001;
     this.corsOptions = {
-      origin: "http://localhost:5173",
+      origin: ["http://localhost:5173", "http://localhost:5174"],
       optionsSuccessStatus: 200,
-    };    
+    };
 
     // Conectar a base de datos
     this.conectarDB();
