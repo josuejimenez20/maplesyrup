@@ -35,7 +35,7 @@ export function ShoppingCart() {
             :
             <div className="dropdown me-5">
                 <button className="btn dropdown-toggle" type="button" id="dropdownmenu" data-bs-toggle="dropdown" aria-expanded="false">
-                    <FaShoppingCart size={20} color="black" />
+                    <FaShoppingCart size={25} color="white" />
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownmenu">
 
