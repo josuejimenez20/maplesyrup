@@ -64,7 +64,7 @@ export function NavBar() {
                 </div>
                 <div className="col-lg-4 shopping-and-sesion">
                     {loading ?
-                        <img width={100} height={10} src={loginMapleSyrup} alt="" />
+                        <img width={100} height={50} src={loginMapleSyrup} alt="" />
                         :
                         <ShoppingCart />
                     }

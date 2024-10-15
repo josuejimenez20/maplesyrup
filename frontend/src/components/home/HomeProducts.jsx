@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {Container} from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { GetListProducts } from '../../redux/actions/products/GetListProducts';
 
-import { CardProductv3 } from '../shared/molecules/CardProductv3';
+// import { CardProductv3 } from '../shared/molecules/CardProductv3';
+
+import CardProductV4 from '../shared/molecules/CardProductV4';
 import loginMapleSyrup from '../../../public/pictures/loginMapleSyrup.gif';
 
 import '../../styles/homeStyles/customProductsHome.css'
@@ -16,10 +20,6 @@ export function HomeProducts() {
 
     useEffect(() => {
         dispatch(GetListProducts());
-    }, [])
-
-    useEffect(() => {
-        console.log(error);
     }, [])
 
     if (error) {
@@ -36,19 +36,19 @@ export function HomeProducts() {
                         <img src={loginMapleSyrup} width={50} height={900} alt="" />
                     </div>
                     :
-                    <div id='containerProducts'>
+                    <Grid container spacing={12} alignContent='center' justifyContent='center'>
 
                         {products.map((product, index) => {
-                            return <div key={index} className='col-lg-3 col-sm-1 productCard'>
-                                <CardProductv3
+                            return <Grid key={index}>
+                                <CardProductV4
                                     id_product={product.id_product}
                                     title={product.name}
                                     price={product.price}
                                     image={product.path_image}
-                                /></div>
+                                /></Grid>
                         })}
 
-                    </div>
+                    </Grid>
 
             }
         </>

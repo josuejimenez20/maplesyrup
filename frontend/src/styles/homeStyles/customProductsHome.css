@@ -1,21 +1,22 @@
-
 /* Menu products */
 
 #containerProducts {
-  padding: 0 0 0 1em; /*Here center our product cards*/
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
 }
 
-.productCard{
-    margin: 2em 0 0 0 ;
+
+
+
+.productCard {
+    margin: 2em 0 0 0;
 }
 
 /* NavBar Home */
 
-.containerTopNavBar{
+.containerTopNavBar {
     width: 100%;
     height: 5em;
     background: transparent;
@@ -26,7 +27,7 @@
     margin: 0 0 2em 0;
 }
 
-#containerForm{
+#containerForm {
     background: transparent;
     display: flex;
     align-items: center;
@@ -48,7 +49,7 @@ input {
 /* Phone */
 @media only screen and (max-width: 600px) {
 
-#containerProducts{
+    #containerProducts {
         padding: 0 0 0 2em;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -57,24 +58,24 @@ input {
 
     /* Menu products */
 
-#containderTopProducts{
-    height: 100%;
-    width: auto;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-}
+    #containderTopProducts {
+        height: 100%;
+        width: auto;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+    }
 
-.productCard{
-    /* width: 20em; */
-    margin: 0 0 0em 0 ;
-}
+    .productCard {
+        /* width: 20em; */
+        margin: 0 0 0em 0;
+    }
 
 
-/* NavBar Home Phone*/
+    /* NavBar Home Phone*/
 
-    .containerTopNavBar{
+    .containerTopNavBar {
         width: 100%;
         height: 5em;
         background: transparent;
@@ -84,25 +85,21 @@ input {
         margin: 8em 0 10em 0;
     }
 
-    #containerForm{
+    #containerForm {
         background: transparent;
         width: 25em;
         margin-top: 2em;
     }
-    
+
     input {
         height: 2.5em;
         margin: 0 2em;
         font-family: 'Knewave', cursive;
     }
-    
+
     .btnFormSearch {
         width: 20%;
         margin: 0 0 0 2em;
     }
 
-} 
-
-
-
-
+}
