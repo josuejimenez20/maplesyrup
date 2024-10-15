@@ -63,7 +63,7 @@ export function NavBar() {
                 {
                     rootPermision ?
                         <Button>
-                            <Link className="nav-link" to="UltimateUser"><strong style={{ fontSize: '20px', margin: '20px', color: 'grey' }}>Admin</strong></Link>
+                            <Link to="UltimateUser"><strong style={{ fontSize: '20px', margin: '20px', color: 'grey' }}>Admin</strong></Link>
                         </Button> : ""
                 }
             </Box>
