@@ -84,7 +84,8 @@ const productInformationById = async (req, res) => {
 
   try {
 
-    let response = await productInformationByIdServices(id)
+    let response = await productInformationByIdServices(id);
+    
 
     return res.status(200).json({
       response
