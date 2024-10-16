@@ -55,7 +55,11 @@ export default function CardProductV4(
                         {title}
                     </Typography>
                     <CardMedia
-                        sx={{ height: 225, width: 'auto' }}
+                        sx={{
+                            height: 225,
+                            width: 300,
+                            objectFit: 'cover',
+                        }}
                         image={image}
                     />
                     <Typography sx={{ color: 'white' }} variant='h6'
