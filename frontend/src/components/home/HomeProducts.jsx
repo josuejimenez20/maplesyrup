@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {Container} from '@mui/material';
+import { Container } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { GetListProducts } from '../../redux/actions/products/GetListProducts';
 
@@ -39,13 +39,14 @@ export function HomeProducts() {
                     <Grid container spacing={12} alignContent='center' justifyContent='center'>
 
                         {products.map((product, index) => {
-                            return <Grid key={index}>
+                            return <Grid item key={index} xs={12} sm={6} md={4}>
                                 <CardProductV4
                                     id_product={product.id_product}
                                     title={product.name}
                                     price={product.price}
                                     image={product.path_image}
-                                /></Grid>
+                                />
+                            </Grid>
                         })}
 
                     </Grid>

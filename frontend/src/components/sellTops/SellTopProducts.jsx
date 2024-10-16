@@ -1,18 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import CardProductsv2 from '../shared/molecules/CardProductsv2';
-import { CardProductv3 } from '../shared/molecules/CardProductv3';
+import Grid from '@mui/material/Grid2';
 import { GetListSellTopsProducts } from '../../redux/actions/sellTops/GetListSellTopsProducts';
+import CardProductV4 from '../shared/molecules/CardProductV4';
+import loginMapleSyrup from '../../../public/pictures/loginMapleSyrup.gif';
+import '../../styles/homeStyles/customProductsHome.css'
 
 export function SellTopProducts() {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
+
+    const { loading, products, error } = useSelector((state) => state.products.list);
 
     useEffect(() => {
         dispatch(GetListSellTopsProducts());
     }, [])
-
-    const { loading, products, error } = useSelector((state) => state.products.list);
 
     if (error) {
         return (
@@ -20,25 +22,31 @@ export function SellTopProducts() {
         )
     }
 
-    return <>
-        <div id='containerProducts'>
+    return (
+        <>
+            {
+                loading
+                    ? <div className="w-100 justify-content-center align-content-center row">
+                        <img src={loginMapleSyrup} width={50} height={900} alt="" />
+                    </div>
+                    :
+                    <Grid container spacing={12} alignContent='center' justifyContent='center'>
 
-            {products.map((product, index) => {
-                return <div key={index} className='col-lg-3 col-sm-1 productCard'>
-                    <CardProductv3
-                        title={product.name}
-                        price={product.price}
-                        image={product.path_image}
-                    /></div>
-            })}
+                        {products.map((product, index) => {
+                            return <Grid item key={index} xs={12} sm={6} md={4}>
+                                <CardProductV4
+                                    id_product={product.id_product}
+                                    title={product.name}
+                                    price={product.price}
+                                    image={product.path_image}
+                                />
+                            </Grid>
+                        })}
 
-            {loading ? <h1>Cargando</h1> : ''}
-        </div>
+                    </Grid>
 
-    </>;
+            }
+        </>
+    )
 }
-
-
-
-
 
