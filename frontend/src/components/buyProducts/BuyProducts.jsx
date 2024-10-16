@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { Container, Typography, Button } from '@mui/material';
 import { GetInformationProductById } from '../../redux/actions/buyProducts/GetInformationProductById'
 import { fetchShoppingCart } from '../../redux/slices/managmentProducts/shoppingCart';
 import loginMapleSyrup from '../../../public/pictures/loginMapleSyrup.gif';
-import '../../styles/buyProducts/buyProducts.css';
 import { MessageError } from "../shared/molecules/AlertMessages";
+import '../../styles/buyProducts/buyProducts.css';
 
 export function BuyProducts() {
 
@@ -74,48 +75,69 @@ export function BuyProducts() {
                 ? <div className="w-100 justify-content-center align-content-center row">
                     <img src={loginMapleSyrup} width={50} height={900} alt="" />
                 </div>
-
                 :
-                <div id="containerInformationProduct">
-                    <img className="imgBuyProduct" src={path_image} alt="" />
-                    <div id="productInformation">
-                        <h2 id="nameProduct">{name}</h2>
-                        <h3 id="descriptionProduct">{description}</h3>
-                        <h3 id="priceProduct">Precio: {price} c/u</h3>
-                        <h3 className="aditionalInformationProduct">Cantidad: {numberProducts}</h3>
-                        <div id="buttonActionsProduct">
-                            <button className="buttonBuy btnActions"
+                <Container
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'start',
+                        marginTop: '5em',
+                        marginBottom: '5em'
+                    }}>
+                    <img className="imageBuyProduct" src={path_image} alt="" />
+                    <Container sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        backgroundColor: 'black',
+                    }}>
+                        <h1 className="edu-au-vic-wa-nt-guides-font">{name}</h1>
+                        <p className="edu-au-vic-wa-nt-guides-font p-edu-au-vic-wa-nt-guides-font">{description}</p>
+                        <p className="edu-au-vic-wa-nt-guides-font p-edu-au-vic-wa-nt-guides-font">Precio: &nbsp; $ {price} &nbsp; MNX &nbsp; c/u</p>
+                        <p className="edu-au-vic-wa-nt-guides-font p-edu-au-vic-wa-nt-guides-font">Cantidad: {numberProducts}</p>
+                        <Container sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'space-around',
+                            gap: 2,
+                            margin: "0em 0 1.5em 0"
+                        }}>
+                            <Button variant="outlined"
                                 onClick={() => {
                                     setNumberProducts(numberProducts - 1)
                                 }
                                 }
                                 disabled={numberProducts === 1 ? true : false}
-                            >-</button>
-                            <button
-                                className="buttonBuy btnActions"
+                            >-</Button>
+                            <Button variant="outlined"
                                 onClick={() => {
                                     setNumberProducts(numberProducts + 1)
                                 }
                                 }
-                                disabled={numberProducts === count ? true : false} >+</button>
+                                disabled={numberProducts === count ? true : false} >+</Button>
 
-                        </div>
-                        <div id="buttonsBuyAndCart">
-                            <button className="buttonBuy buyButton"
+                        </Container>
+                        <Container
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'space-around',
+                                gap: 2
+                            }}>
+                            <Button variant="outlined"
                                 onClick={() => {
                                     handleValidateUserSession();
                                 }}
-                            >Comprar</button>
-                            <button className="buttonBuy cartButton"
+                            >Comprar</Button>
+                            <Button variant="outlined"
                                 onClick={
                                     () => {
                                         handleAddProductShoppingCart(id_product, name, price, path_image)
                                         dispatch(fetchShoppingCart(true))
                                     }
-                                }>Agregar al carrito</button>
-                        </div>
-                    </div>
-                </div>
+                                }>Agregar al carrito</Button>
+                        </Container>
+                    </Container>
+                </Container>
             }
             <p id="textOfCompany">Si no esta registrado, por favor regístrese para poder hacer compras en Maple Syrup, no le tomará más de 5 minutos.
                 Seleccione el producto deseado para visualizar los detalles, puede buscar un producto en específico o puede buscar

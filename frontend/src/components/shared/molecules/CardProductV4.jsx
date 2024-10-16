@@ -67,7 +67,7 @@ export default function CardProductV4(
                         ${price} MXN
                     </Typography>
                     <Container sx={{ marginTop: 2 }}>
-                        <Button variant="outlined" sx={{ marginRight: 1 }}
+                        <Button variant="outlined" sx={{ marginRight: 3.5 }}
                             onClick={() => {
                                 navigate(`/BuyProducts/${id_product}`);
                             }}

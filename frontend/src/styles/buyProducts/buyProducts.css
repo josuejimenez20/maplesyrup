@@ -1,137 +1,43 @@
-:root{
-    --font-family: Georgia, 'Times New Roman', Times, serif;
-    --background-color-information: rgb(237, 231, 225);
+.edu-au-vic-wa-nt-guides-font {
+    font-family: "Edu AU VIC WA NT Guides", cursive;
+    font-weight: 500;
+    font-optical-sizing: auto;
+    color: #5c7080;
+    margin: 0.2em 0 1em 0;
 }
 
-
-#containerInformationProduct {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: transparent;
-    width: 100%;
-    height: 40em;
+.p-edu-au-vic-wa-nt-guides-font{
+    font-size: x-large;
 }
 
-#productInformation{
-    display: flex;
-    flex-direction: column;
-    margin: 0 0 0 2em;
-    font-family: var(--font-family)
+/* Clase para la fuente 'Edu AU VIC WA NT Guides' */
+.google-font-pacific {
+    font-family: 'Edu AU VIC WA NT Guides', cursive;
+    font-weight: 500;
+    color: grey;
 }
 
-#nameProduct{
-    background-color: var(--background-color-information);
-    font-family: var(--font-family);
+/* Clase para la fuente 'Pacifico' */
+.pacific {
+    font-family: 'Pacifico', cursive;
+    color: rgb(79, 103, 142);
+    font-size: x-large;
     text-align: center;
-}
-
-#descriptionProduct {
-    width: 99%;
-    height: auto;
-    background-color: var(--background-color-information);
-    margin: 1em 0 0 0;
-    text-align: center;
-    font-family: var(--font-family);
-}
-
-#priceProduct {
-    width: 100%;
-    height: auto;
-    background-color: var(--background-color-information);
-    margin: 1em 0 0 0;
-    text-align: center;
-    font-family: var(--font-family);
-}
-
-.aditionalInformationProduct {
-    width: 100%;
-    height: auto;
-    background-color: var(--background-color-information);
-    margin: 1em 0 0 0;
-    text-align: center;
-    font-family: var(--font-family);
-}
-
-#buttonActionsProduct{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 1em 0 0 0;
-}
-
-#buttonActionsProduct button{
-    background-color: transparent;
-    background-color: var(--background-color-information);
-    width: 20%;
-    height: 50%;
-    margin: 2em 0 0 0;
-    font-family: var(--font-family);
-    font-size: 1.2em;
-
-}
-
-#buttonsBuyAndCart{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 3em 0 0 0;
-}
-
-.buyButton{
-    background-color: rgb(33, 198, 227);
-}
-
-.cartButton{
-    background-color: rgb(211, 227, 33);
-}
-
-
-.imgBuyProduct {
-    width: 30%;
-    height: 70%;
 }
 
 #textOfCompany {
     display: flex;
     flex-direction: row;
-    /* font-family: var(--font-family); */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
     font-size: larger;
     text-align: center;
     height: 20em;
     padding: 0 10% 0 10%;
+    color: rgba(245, 245, 245, 0.729);
 }
 
-/* Phone */
-@media only screen and (max-width: 600px) { 
-
-    #containerInformationProduct {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: transparent;
-        width: 100%;
-        height: 40em;
-    }
-
-    #productInformation{
-        margin: 0 0 0 0em;
-    }
-    
-    .imgBuyProduct {
-        width: 35%;
-        height: 70%;
-        margin: 1em 0 2em 0;
-    }
-
-    #textOfCompany {
-        font-size: small;
-        text-align: center;
-        height: 20em;
-        margin: 4em 0 0 0;
-    }
-
+.imageBuyProduct {
+    width: 50%;
+    height: 50%;
 }
