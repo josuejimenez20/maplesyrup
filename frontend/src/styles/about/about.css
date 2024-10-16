@@ -1,83 +1,49 @@
-.about{
-    
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: grid;
-    min-height: 640px;
-    grid-template-columns: 20% 80%;
-    /*
-    background: linear-gradient(rgb(255, 192, 203),rgb(230, 139, 158));
-    */
-    background: #b37d64;
+/* src/styles/global.css */
+.edu-au-vic-wa-nt-guides {
+    font-family: "Edu AU VIC WA NT Guides", cursive;
+    font-weight: 500;
+    font-optical-sizing: auto;
+    color: #5c7080;
 }
-.button{
+
+.second-principal-title {
+    margin-bottom: 4em;
+}
+
+/* Clase para la fuente 'Edu AU VIC WA NT Guides' */
+.google-font-pacific {
+    font-family: 'Edu AU VIC WA NT Guides', cursive;
+    font-weight: 500;
+    color: grey;
+  }
+  
+  /* Clase para la fuente 'Pacifico' */
+  .pacific {
+    font-family: 'Pacifico', cursive;
+    color: rgb(79, 103, 142);
+    font-size: x-large;
+    text-align: center;
+  }
+
+.button {
     justify-content: center;
     letter-spacing: 5px;
     padding: 12px;
     width: 190px;
     cursor: pointer;
     background: linear-gradient(32deg, #ff5e0080, #ae00ffef);
-    color:#fff;
-    text-align:auto;
+    color: #fff;
+    text-align: auto;
     text-decoration: none;
     letter-spacing: 2px;
     border-radius: 15px 10px;
     transition: 0.3s ease-in-out;
-    
+
 }
-.button:hover{
-    border: 1px solid ;
+
+.button:hover {
+    border: 1px solid;
     background: linear-gradient(15deg, #f7be01cb, #c300ff);
     border-color: #fff;
-    box-shadow: 0 0 7px 0 #fff, 0 0 2000px 10px #f7be01cb;
-    
-}
-
-.sTitle{
-    /*
-color: rgb(247, 160, 175);
-    */
-    color: #2a2726;
-    
-    margin-bottom: 30px;
-    overflow: auto;
-}
-.contact{
-    display: grid;
-    grid-gap: 25px;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2,22px);
-    color: rgb(255, 255, 255);
-    text-align: center;
-    margin: auto;
-    
-    justify-items: center;
-}
-.mini{
-    font-family: Verdana, 12;
-    color: rgb(112, 112, 112);
-}
-
-.info{
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 100px);
-    background: rgb(255, 255, 255);
-    /*Alineación horizontal*/
-    justify-content: space-around;
-    /*Alineación vertical*/
-    align-content: space-around;
-    overflow: auto;
-}
-.txt{
-    margin: 50px;
-}
-@media screen and (max-width: 1150px){
-    .about{
-        grid-template-columns: 100%;
-        grid-template-rows: 120px 100%;
-    }
-    .info{
-        grid-template-rows: repeat(4, 150px);
-    }
+    box-shadow: 0 0 7px 0 #fff, 0 0 50px 10px #f7be01cb;
 }

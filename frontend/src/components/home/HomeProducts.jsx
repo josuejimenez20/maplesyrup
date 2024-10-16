@@ -3,14 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { GetListProducts } from '../../redux/actions/products/GetListProducts';
-
-// import { CardProductv3 } from '../shared/molecules/CardProductv3';
-
 import CardProductV4 from '../shared/molecules/CardProductV4';
 import loginMapleSyrup from '../../../public/pictures/loginMapleSyrup.gif';
-
-import '../../styles/homeStyles/customProductsHome.css'
-import '../../styles/shared/molecules/customCard/customCardProductv3.css';
 
 export function HomeProducts() {
 

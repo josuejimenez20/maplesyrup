@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid2';
 import { GetListNewProducts } from '../../redux/actions/listNewProducts/GetListNewProducts';
 import CardProductV4 from '../shared/molecules/CardProductV4';
 import loginMapleSyrup from '../../../public/pictures/loginMapleSyrup.gif';
-import '../../styles/homeStyles/customProductsHome.css'
 
 export function ListNewProducts() {
 
