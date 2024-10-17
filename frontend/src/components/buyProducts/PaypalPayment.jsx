@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
+import { Container, Typography } from "@mui/material";
 import '../../styles/buyProducts/paypalPayment.css';
 import {
     PayPalScriptProvider,
@@ -25,12 +26,6 @@ export function PaypalPayment() {
     const USER_ID = localStorage.getItem('id_user');
     const USER_NAME = localStorage.getItem('names');
 
-
-    // const initialOptions = {
-    //     "AeL_Ni_kxn2i87lVrbiphqNIKxGfZxzfXaFUzfsFOGtln-TxLTMyYor7otQSFD6VelViSQaacfFJMupv": "test",
-    //     currency: "MXN",
-    //     intent: "capture"
-    // };
 
     const createOrderHandler = (data, actions) => {
         // Set up the transaction
@@ -78,16 +73,26 @@ export function PaypalPayment() {
 
     return (<>
 
-        <div id="containerPayments">
+        <Container sx={{
+            height: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+        }}>
 
-            <div id="productInformation">
-                <h3 className="textInformation">Nombre del producto: <a className="subTextInformation">{name}</a></h3>
-                <h3 className="textInformation">Precio: <a className="subTextInformation">{price}</a></h3>
-                <h3 className="textInformation">Cantidad: <a className="subTextInformation">{countProducts}</a></h3>
+            <Container
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    marginTop: '3em'
+                }}>
+                <h1 className="edu-au-vic-wa-nt-guides-font">{name}</h1>
+                <p className="edu-au-vic-wa-nt-guides-font p-edu-au-vic-wa-nt-guides-font">Precio: &nbsp; $ {price} &nbsp; MNX &nbsp; c/u</p>
+                <p className="edu-au-vic-wa-nt-guides-font p-edu-au-vic-wa-nt-guides-font">Cantidad: {countProducts}</p>
                 <img className="imgBuyProduct" src={path_image} alt="" />
-                <h3 className="textInformation"><a className="subTextInformation">{description}</a></h3>
-            </div>
-
+                <p className="edu-au-vic-wa-nt-guides-font p-product-description-du-au-vic-wa">{description}</p>
+            </Container>
 
             <PayPalScriptProvider
                 options={{
@@ -100,9 +105,6 @@ export function PaypalPayment() {
                     onApprove={onApproveHandler}
                 />
             </PayPalScriptProvider>
-
-        </div>
-
-
+        </Container>
     </>);
 }
