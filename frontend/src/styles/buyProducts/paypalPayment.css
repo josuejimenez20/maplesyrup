@@ -1,23 +1,43 @@
-#containerPayments {
-    padding: 0 30% 0 30%;
-    background-color: transparent;
-}
-
-#productInformation {
-    margin: 2em 0 2em 0;
-}
-
 .imgBuyProduct {
-    width: 50%;
-    height: 80%;
+    width: 35%;
 }
 
-.textInformation{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 700;
+.edu-au-vic-wa-nt-guides-font {
+    font-family: "Edu AU VIC WA NT Guides", cursive;
+    font-weight: 500;
+    font-optical-sizing: auto;
+    color: #5c7080;
+    margin: 0.2em 0 1em 0;
 }
 
-.subTextInformation{
-    color: gray;
-    text-decoration: none;
+.p-edu-au-vic-wa-nt-guides-font{
+    font-size: x-large;
+}
+
+.p-product-description-du-au-vic-wa {
+    font-size: large;
+    margin: 2em 0 2em 0;
+    width: 50%; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    text-align: center;
+}
+
+.google-font-pacific {
+    font-family: 'Edu AU VIC WA NT Guides', cursive;
+    font-weight: 500;
+    color: grey;
+}
+
+.pacific {
+    font-family: 'Pacifico', cursive;
+    color: rgb(79, 103, 142);
+    font-size: x-large;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .p-product-description-du-au-vic-wa {
+        width: 90%; /* Haz el contenedor más flexible en dispositivos móviles */
+    }
 }
