@@ -1,24 +1,20 @@
-#containerShoppingCart{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: transparent;
-    width: 100%;
-    height: auto;
+.edu-au-vic-wa-nt-guides {
+    font-family: "Edu AU VIC WA NT Guides", cursive;
+    font-weight: 500;
+    font-optical-sizing: auto;
+    color: #5c7080;
 }
 
-#titlePage {
-    margin: 0 0 2em 0;
-    font-weight: 600;
-}
-
-.informationProduct{
-    color: black;
-    font-size: 2em;
-    margin: 0 0 0 1em;
-    text-decoration: none;
-}
-
-.product{
-    margin: 0 0 2em 0;
-}
+.google-font-pacific {
+    font-family: 'Edu AU VIC WA NT Guides', cursive;
+    font-weight: 500;
+    color: grey;
+  }
+  
+  /* Clase para la fuente 'Pacifico' */
+  .pacific {
+    font-family: 'Pacifico', cursive;
+    color: rgb(79, 103, 142);
+    font-size: xx-large;
+    text-align: center;
+  }

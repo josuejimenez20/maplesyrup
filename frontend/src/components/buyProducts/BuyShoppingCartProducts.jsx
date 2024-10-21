@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
     PayPalScriptProvider,
     PayPalButtons
 } from "@paypal/react-paypal-js";
+import { Container, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import '../../styles/buyProducts/buyShoppingCartProduct.css';
 
 export function BuyShoppingCartProducts() {
@@ -55,22 +57,44 @@ export function BuyShoppingCartProducts() {
         });
     };
 
-
     return (<>
 
         {
-            < div id="containerShoppingCart">
-                <h2 id="titlePage">Compras del carrito</h2>
-                <div>
-                    {elementsShoppingCart.map((product, index) => {
-                        return <div key={index} className="product" href="#">
-                            <img width={150} height={150} src={product.image_path} alt="" className="" />
-                            <a className="me-2 informationProduct">{product.title}</a>
-                            <a className="me-2 informationProduct">Precio: {product.price}</a>
-                        </div>
-                    })}
-                </div>
-                <h5>Precio Total: {TOTAL_PRICE}</h5>
+            <Container
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    height: '100vh'
+                }}>
+                <h1 style={{
+                    marginBottom: '5%',
+                    marginTop: '4%'
+                }} className="google-font-pacific">Compras del carrito</h1>
+
+                <Grid container direction="column" spacing={3}>
+                    {elementsShoppingCart.map((product, index) => (
+                        <Container item key={index}
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'center'
+                            }}>
+                            <img width={150} height={150} src={product.image_path} alt={product.title}
+                                style={{
+                                    marginRight: '2em'
+                                }} />
+                            <p className="pacific">{product.title} &nbsp;</p>
+                            <p className="pacific">Precio: $ {product.price} &nbsp; MXN c/p</p>
+                        </Container>
+                    ))}
+                </Grid>
+                <Typography variant="h4"
+                    style={{
+                        marginTop: '2em',
+                        marginBottom: '1em',
+                        color: 'white'
+                    }}>Precio Total: {TOTAL_PRICE}</Typography>
                 <PayPalScriptProvider
                     options={{
                         "client-id": "AeL_Ni_kxn2i87lVrbiphqNIKxGfZxzfXaFUzfsFOGtln-TxLTMyYor7otQSFD6VelViSQaacfFJMupv",
@@ -82,7 +106,7 @@ export function BuyShoppingCartProducts() {
                         onApprove={onApproveHandler}
                     />
                 </PayPalScriptProvider>
-            </div >
+            </Container >
 
         }
     </>);
