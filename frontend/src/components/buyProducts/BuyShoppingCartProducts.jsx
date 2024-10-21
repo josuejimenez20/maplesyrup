@@ -9,9 +9,7 @@ export function BuyShoppingCartProducts() {
 
     let TOTAL_PRICE = 0;
 
-    const elementsShoppingCart = JSON.parse(localStorage.getItem("shopping_cart")) || [];
-
-    console.log(elementsShoppingCart[0].price);
+    const elementsShoppingCart = JSON.parse(localStorage.getItem("shopping_cart")) || null;
 
     elementsShoppingCart.forEach(element => {
         TOTAL_PRICE += element.price;
@@ -60,29 +58,32 @@ export function BuyShoppingCartProducts() {
 
     return (<>
 
-        <div id="containerShoppingCart">
-            <h2 id="titlePage">Compras del carrito</h2>
-            <div>
-                {elementsShoppingCart.map((product, index) => {
-                    return <div key={index} className="product" href="#">
-                        <img width={150} height={150} src={product.image_path} alt="" className="" />
-                        <a className="me-2 informationProduct">{product.title}</a>
-                        <a className="me-2 informationProduct">Precio: {product.price}</a>
-                    </div>
-                })}
-            </div>
-            <h5>Precio Total: {TOTAL_PRICE}</h5>
-            <PayPalScriptProvider
-                options={{
-                    "client-id": "AeL_Ni_kxn2i87lVrbiphqNIKxGfZxzfXaFUzfsFOGtln-TxLTMyYor7otQSFD6VelViSQaacfFJMupv",
-                    currency: "MXN",
-                    intent: "capture"
-                }}>
-                <PayPalButtons
-                    createOrder={createOrderHandler}
-                    onApprove={onApproveHandler}
-                />
-            </PayPalScriptProvider>
-        </div>
+        {
+            < div id="containerShoppingCart">
+                <h2 id="titlePage">Compras del carrito</h2>
+                <div>
+                    {elementsShoppingCart.map((product, index) => {
+                        return <div key={index} className="product" href="#">
+                            <img width={150} height={150} src={product.image_path} alt="" className="" />
+                            <a className="me-2 informationProduct">{product.title}</a>
+                            <a className="me-2 informationProduct">Precio: {product.price}</a>
+                        </div>
+                    })}
+                </div>
+                <h5>Precio Total: {TOTAL_PRICE}</h5>
+                <PayPalScriptProvider
+                    options={{
+                        "client-id": "AeL_Ni_kxn2i87lVrbiphqNIKxGfZxzfXaFUzfsFOGtln-TxLTMyYor7otQSFD6VelViSQaacfFJMupv",
+                        currency: "MXN",
+                        intent: "capture"
+                    }}>
+                    <PayPalButtons
+                        createOrder={createOrderHandler}
+                        onApprove={onApproveHandler}
+                    />
+                </PayPalScriptProvider>
+            </div >
+
+        }
     </>);
 }

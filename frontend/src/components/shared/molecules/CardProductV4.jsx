@@ -21,8 +21,8 @@ export default function CardProductV4(
     const [dataShopping, setDataShopping] = useState([]);
 
     useEffect(() => {
-        setDataShopping(JSON.parse(localStorage.getItem("shopping_cart")) || []);
-    }, [])
+        setDataShopping(JSON.parse(localStorage.getItem("shopping_cart")) || []);        
+    }, [loading])
 
     const handleAddProductShoppingCart = (id_product, title, price, image_path) => {
 
@@ -38,11 +38,12 @@ export default function CardProductV4(
         // It's most an array 
         const array = dataShopping;
 
-        // Add the product join data localstorage
+        // Join data product with localStorage
         array.push(objectData);
 
         // Add data to localstorage
         localStorage.setItem("shopping_cart", JSON.stringify(array));
+
     }
 
 

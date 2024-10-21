@@ -38,7 +38,7 @@ export function About() {
                     alignItems: 'center',
                     gap: 0.8
                 }}>
-                <h1 className="edu-au-vic-wa-nt-guides">Satisfaccion en todos tus productos</h1>
+                <h1 className="edu-au-vic-wa-nt-guides mar_edu">Satisfaccion en todos tus productos</h1>
                 <p className="edu-au-vic-wa-nt-guides second-principal-title">
                     Miel de maple es el bazar de ropa y joyería más importante de Hidalgo.
                 </p>
