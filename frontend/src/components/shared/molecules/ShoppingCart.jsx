@@ -11,6 +11,7 @@ export function ShoppingCart() {
     // Delete element of shopping cart
     const handleDeleteElement = (indexElement) => {
         const elementsShoppingCart = JSON.parse(localStorage.getItem("shopping_cart")) || [];
+
         const newLements = elementsShoppingCart.filter((element, index) => {
             return indexElement != index;
         })
@@ -27,7 +28,11 @@ export function ShoppingCart() {
         }, 2000);
     }, [loadingCart])
 
-    const elementsShoppingCart = JSON.parse(localStorage.getItem("shopping_cart")) || [];
+    useEffect(() => {
+
+    }, [])
+    const elementsShoppingCart = JSON.parse(localStorage.getItem("shopping_cart")) || null;
+
 
     return (<>
         {loadingCart ?
@@ -40,7 +45,7 @@ export function ShoppingCart() {
                 <div className="dropdown-menu" aria-labelledby="dropdownmenu">
 
                     {elementsShoppingCart.map((product, index) => {
-                        return <div className="dropdown-item" href="#">
+                        return <div className="dropdown-item" href="#" key={index}>
                             <img width={50} height={50} src={product.image_path} alt="" className="" />
                             <a className="me-2">{product.title}</a>
                             <button className="btn btn-danger" onClick={() => {
@@ -49,6 +54,7 @@ export function ShoppingCart() {
                         </div>
                     })}
                     <button
+                        disabled={elementsShoppingCart.length > 0 ? false : true}
                         className="btn btn-primary w-100 mt-3"
                         onClick={() => {
                             navigate('/PaypalPaymentShoppingCart');
