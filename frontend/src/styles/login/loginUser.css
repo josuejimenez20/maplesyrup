@@ -2,12 +2,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 75vh;
+    height: 82vh;
     width: 100%;
-    background: rgb(143, 110, 143) url(../../../public/pictures/imageLogin.jpg) no-repeat center center;
+    background: black;
     background-blend-mode: darken;
     background-size: cover;
 }
+
+#login_form{
+    background-color: rgb(8, 8, 8);
+}
+
 .form_class {
     width: 500px;
     padding: 40px;
@@ -25,6 +30,7 @@
 .form_div > label {
     letter-spacing: 3px;
     font-size: 1rem;
+    color: wheat
 }
 .info_div {
     text-align: center;
@@ -61,7 +67,7 @@
     cursor: pointer;
 }
 footer {
-    height: 10vh;
+    height: 20vh;
     background-color: pink;
     color: white;
     display: flex;

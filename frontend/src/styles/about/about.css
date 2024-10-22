@@ -5,12 +5,12 @@
     color: #5c7080;
 }
 
-.mar_edu{
-    margin-top: 24%;
+.mar_edu {
+    margin-top: 65%;
 }
 
 .second-principal-title {
-    margin-bottom: 4em;
+    margin-bottom: 3em;
 }
 
 /* Clase para la fuente 'Edu AU VIC WA NT Guides' */
@@ -18,15 +18,15 @@
     font-family: 'Edu AU VIC WA NT Guides', cursive;
     font-weight: 500;
     color: grey;
-  }
-  
-  /* Clase para la fuente 'Pacifico' */
-  .pacific {
+}
+
+/* Clase para la fuente 'Pacifico' */
+.pacific {
     font-family: 'Pacifico', cursive;
     color: rgb(79, 103, 142);
     font-size: x-large;
     text-align: center;
-  }
+}
 
 .button {
     justify-content: center;

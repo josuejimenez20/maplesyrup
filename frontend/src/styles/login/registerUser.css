@@ -33,6 +33,7 @@
     font-family: 'system-ui';
     text-transform: uppercase;
     text-align: center;
+    color: white;
 }
 
 #user_gender{
@@ -43,7 +44,7 @@
     width: 1200px;
     padding: 25px;
     border-radius: 8px;
-    background-color: white;
+    background-color: black;
     font-family: 'system-ui';
     box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.3);
 }
