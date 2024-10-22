@@ -51,7 +51,7 @@ export function RegisterUser() {
             }}>
 
             <div className="form_div">
-                <h4 id="title">Registro de usuario.</h4>
+                <h4 id="title" style={{color: 'white'}}>Registro de usuario.</h4>
 
                 <hr />
                 <br />
@@ -150,10 +150,10 @@ export function RegisterUser() {
                 <br />
                 <br />
 
-                <label className="labelInput data_important-label">Correo:</label>
+                <label className="labelInput">Correo:</label>
                 <input type="email" name="user_mail" className="field_class data_important" id="mail" placeholder="Ingrese su correo electronico" required />
 
-                <label className="labelInput data_important-password">Contraseña:</label>
+                <label className="labelInput">Contraseña:</label>
                 <input type="password" name="password" className="field_class data_important" id="password" placeholder="Ingrese su contraseña" required />
 
                 <br />
@@ -164,7 +164,7 @@ export function RegisterUser() {
             </div>
 
             <div className="info_div">
-                <p>¿Ya estás registrado?  <Link to={'/login/LoginUser'}> ¡Ingrese aquí!</Link></p>
+                <p style={{color: "white"}}>¿Ya estás registrado?  <Link to={'/login/LoginUser'}> ¡Ingrese aquí!</Link></p>
             </div>
         </form>
 
