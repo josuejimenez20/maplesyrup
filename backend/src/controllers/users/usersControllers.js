@@ -1,11 +1,10 @@
-const uuid = require('uuid');
-const { petitionSQL } = require("../../models/users/usersModels");
+import { v4 as uuid } from 'uuid';
 
-const {
+import {
   getInformationUserServices,
   newUserPostServices,
   editInformationUserServices
-} = require("../../services/users/usersServices");
+} from "../../services/users/usersServices.js";
 
 
 const getInformationUserController = async (req, res) => {
@@ -70,7 +69,7 @@ const editInformationUserController = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   getInformationUserController,
   newUserController,
   editInformationUserController

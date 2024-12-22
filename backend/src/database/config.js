@@ -1,5 +1,5 @@
-let mysql = require('mysql');
-let conexion = mysql.createConnection({
+import mysql from "mysql";
+const conexion = mysql.createConnection({
     host: 'localhost',
     database: 'maplesyrup',
     user: 'root',
@@ -16,7 +16,7 @@ const dbConnection = () => {
     });
 }
 
-module.exports = {
+export {
     dbConnection,
     conexion
 }

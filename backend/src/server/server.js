@@ -1,7 +1,8 @@
-const express = require("express");
-const cors = require("cors");
-const fileUpload = require("express-fileupload");
-const { dbConnection } = require("../database/config");
+import express from "express";
+import cors from "cors";
+import fileUpload from "express-fileupload";
+import { dbConnection } from "../database/config.js";
+import router from "../routes/index.js"
 
 class Server {
   constructor() {
@@ -11,6 +12,7 @@ class Server {
       origin: ["http://localhost:5173", "http://localhost:5174"],
       optionsSuccessStatus: 200,
     };
+    this.basePath = "/api/v2";
 
     // Conectar a base de datos
     this.conectarDB();
@@ -50,7 +52,7 @@ class Server {
   }
 
   routes() {
-    this.app.use(require("../routes/index"));
+    this.app.use(this.basePath, router);
   }
 
   listen() {
@@ -60,4 +62,4 @@ class Server {
   }
 }
 
-module.exports = Server;
+export default Server;

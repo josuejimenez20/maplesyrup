@@ -1,4 +1,4 @@
-const { conexion } = require("../../database/config");
+import { conexion } from "../../database/config.js";
 
 function getProducts() {
   return new Promise((resolve, reject) => {
@@ -130,7 +130,7 @@ function setCountProductById(data) {
   });
 }
 
-module.exports = {
+export {
   getProducts,
   newProductsGetModels,
   topSellProductsGetModels,
@@ -141,9 +141,3 @@ module.exports = {
   newProductInformationModel,
   setCountProductById
 };
-
-
-
-// SELECT * FROM products p
-// WHERE p.name OR p.typeProduct
-// LIKE 'collar%' 

@@ -1,6 +1,7 @@
-const nodemailer = require('nodemailer');
+import { createTransport } from "nodemailer";
 
-const { productInformationByIdModels, setCountProductById } = require('../../models/products/producstModels');
+import { productInformationByIdModels, setCountProductById }
+    from "../../models/products/producstModels.js";
 
 
 const paypalCreatePaymentServices = async (data) => {
@@ -39,7 +40,7 @@ const sendEmailPayerInformationProduct = ({ data }) => {
         html: "<p>Link para entrar a la página de microlab: <br> <a href='https://microlab.ec'></a></p>"
     };
 
-    const transporter = nodemailer.createTransport({
+    const transporter = createTransport({
         service: 'gmail',
         port: 3001,
         auth: {
@@ -58,7 +59,7 @@ const sendEmailPayerInformationProduct = ({ data }) => {
     })
 }
 
-module.exports = {
+export {
     paypalCreatePaymentServices
 }
 

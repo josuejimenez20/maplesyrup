@@ -1,18 +1,18 @@
-const {
-    loginVerificateModel } = require("../../models/login/loginModels");
+import {
+    loginVerifyModel } from "../../models/login/loginModels.js";
 
 
-const loginVereficateServices = async (email, password) => {
+const loginVerifyServices = async (email, password) => {
     // Here we would can decrypt email and password 
 
     try {
-        let response = await loginVerificateModel(email, password);
+        let response = await loginVerifyModel(email, password);
         return response;
     } catch (error) {
         return error;
     }
 };
 
-module.exports = {
-    loginVereficateServices
+export {
+    loginVerifyServices
 }

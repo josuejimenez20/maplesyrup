@@ -1,5 +1,5 @@
-const { Router } = require('express');
-const {
+import Router from "express";
+import {
     productsGet,
     productsNewGet,
     topSellProductsGet,
@@ -7,7 +7,7 @@ const {
     searchProductsByWordGet,
     productInformationById,
     newProductsPost,
-} = require('../../controllers/products/productsControllers');
+} from "../../controllers/products/productsControllers.js";
 
 const router = Router();
 
@@ -25,4 +25,4 @@ router.get('/productInformationById/:id', productInformationById);
 
 router.post('/AddNewProduct', newProductsPost);
 
-module.exports = router;
+export default router;

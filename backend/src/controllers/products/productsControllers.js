@@ -1,5 +1,5 @@
-const { response, request } = require("express");
-const {
+import { response, request } from "express";
+import {
   productsGetServices,
   newProductsPostServices,
   newProductsGetServices,
@@ -7,7 +7,7 @@ const {
   topSellProductsGetServices,
   searchProductsByWordServices,
   productInformationByIdServices
-} = require("../../services/products/productsServices");
+} from "../../services/products/productsServices.js";
 
 const productsGet = async (req = request, res = response) => {
   try {
@@ -85,7 +85,7 @@ const productInformationById = async (req, res) => {
   try {
 
     let response = await productInformationByIdServices(id);
-    
+
 
     return res.status(200).json({
       response
@@ -121,7 +121,7 @@ const newProductsPost = async (req = request, res) => {
 };
 
 
-module.exports = {
+export {
   productsGet,
   productsNewGet,
   topSellProductsGet,

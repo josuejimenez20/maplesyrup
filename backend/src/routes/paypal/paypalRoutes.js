@@ -1,12 +1,12 @@
-const { Router } = require('express');
-const {
+import Router from "express";
+import {
     paypalPaymentControllers
-} = require('../../controllers/paypal/paypalControllers');
+} from "../../controllers/paypal/paypalControllers.js";
 
-const { paymentValidator } = require('../../validator/paypalPayment/paymentValidator');
+import { paymentValidator } from "../../validator/paypalPayment/paymentValidator.js";
 
 const router = Router();
 
 router.post('/payment', paymentValidator, paypalPaymentControllers);
 
-module.exports = router;
+export default router;

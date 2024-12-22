@@ -1,6 +1,6 @@
-const {
+import {
     paypalCreatePaymentServices
-} = require('../../services/paypal/paypalServices');
+} from "../../services/paypal/paypalServices.js";
 
 
 const paypalPaymentControllers = async (req, res) => {
@@ -26,6 +26,6 @@ const paypalPaymentControllers = async (req, res) => {
 }
 
 
-module.exports = {
+export {
     paypalPaymentControllers
 }
