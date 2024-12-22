@@ -1,5 +1,5 @@
-const { check } = require("express-validator");
-const { validateResult } = require('../../helpers/validateHelper')
+import { check } from "express-validator";
+import { validateResult } from "../../helpers/validateHelper.js";
 
 const validateLogin = [
     check("email").exists().not().isEmpty().isEmail(),
@@ -10,4 +10,4 @@ const validateLogin = [
     }
 ];
 
-module.exports = { validateLogin }
+export { validateLogin }

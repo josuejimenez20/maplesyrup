@@ -1,19 +1,19 @@
-const { response, request } = require("express");
+import { response, request } from "express";
 
-const {
-    loginVereficateServices
-} = require("../../services/login/loginServices");
+import {
+    loginVerifyServices
+} from "../../services/login/loginServices.js";
 
 // Here only we call the services, in services where we 
 // use our logical businesse logic.
 // In services we call of model for can access data or petition
 
-const loginVerificate = async (req = request, res = response) => {
+const loginVerify = async (req = request, res = response) => {
 
     const { email, password } = req.body;
 
     try {
-        let response = await loginVereficateServices(email, password);
+        let response = await loginVerifyServices(email, password);
 
         if (response.length === 0) {
             return res.status(404).json({
@@ -29,6 +29,6 @@ const loginVerificate = async (req = request, res = response) => {
     }
 };
 
-module.exports = {
-    loginVerificate
+export {
+    loginVerify
 }

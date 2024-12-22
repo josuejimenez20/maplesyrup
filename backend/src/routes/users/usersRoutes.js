@@ -1,10 +1,12 @@
-const { Router } = require('express');
-const {
+import Router from "express";
+import {
     getInformationUserController,
     newUserController,
-    editInformationUserController } = require('../../controllers/users/usersControllers');
-const { validateCreate } = require('../../validator/users/newUserValidate');
-const { editUserValidate } = require('../../validator/users/editUserValidate');
+    editInformationUserController
+} from "../../controllers/users/usersControllers.js";
+
+import { validateCreate } from "../../validator/users/newUserValidate.js";
+import { editUserValidate } from "../../validator/users/editUserValidate.js";
 
 const router = Router();
 
@@ -14,4 +16,4 @@ router.post('/new', validateCreate, newUserController);
 
 router.post('/edit', editUserValidate, editInformationUserController);
 
-module.exports = router;
+export default router;

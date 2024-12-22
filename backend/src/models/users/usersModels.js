@@ -1,4 +1,4 @@
-const { conexion } = require('../../database/config');
+import { conexion } from "../../database/config.js";
 
 
 function getInformationUserModels(data) {
@@ -99,7 +99,7 @@ function editInformationDirectionsUserModels(data) {
     })
 }
 
-module.exports = {
+export {
     getInformationUserModels,
     newUserModels,
     newDirectionFromUserId,

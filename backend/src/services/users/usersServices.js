@@ -1,9 +1,9 @@
-const {
+import {
   getInformationUserModels,
   newUserModels,
   newDirectionFromUserId,
   editInformationUserModels,
-  editInformationDirectionsUserModels } = require("../../models/users/usersModels");
+  editInformationDirectionsUserModels } from "../../models/users/usersModels.js";
 
 
 const getInformationUserServices = async (data) => {
@@ -58,7 +58,7 @@ const editInformationUserServices = async (data) => {
 
 
 
-module.exports = {
+export {
   getInformationUserServices,
   newUserPostServices,
   editInformationUserServices

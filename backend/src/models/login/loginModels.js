@@ -1,6 +1,6 @@
-const { conexion } = require('../../database/config');
+import { conexion } from "../../database/config.js";
 
-function loginVerificateModel(email, password) {
+function loginVerifyModel(email, password) {
     return new Promise((resolve, reject) => {
         conexion.query(`
                         SELECT * FROM users u 
@@ -13,7 +13,6 @@ function loginVerificateModel(email, password) {
     })
 }
 
-
-module.exports = {
-    loginVerificateModel
+export {
+    loginVerifyModel
 }

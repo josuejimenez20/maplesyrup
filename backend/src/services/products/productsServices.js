@@ -1,5 +1,4 @@
-const { response, request } = require("express");
-const {
+import {
   getProducts,
   newProductsGetModels,
   topSellProductsGetModels,
@@ -8,10 +7,12 @@ const {
   productInformationByIdModels,
   newProductModel,
   newProductInformationModel
-} = require("../../models/products/producstModels");
+} from "../../models/products/producstModels.js";
 
 // Cloudinary configuration
-const cloudinary = require("cloudinary").v2;
+import { v2 } from "cloudinary";
+const cloudinary = v2;
+
 cloudinary.config(process.env.CLOUDINARY_URL);
 
 const productsGetServices = async () => {
@@ -98,8 +99,7 @@ const newProductsPostServices = async (data) => {
   }
 };
 
-
-module.exports = {
+export {
   productsGetServices,
   newProductsGetServices,
   topSellProductsGetServices,
