@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+import { v2 } from "cloudinary";
 import {
   getProducts,
   newProductsGetModels,
@@ -10,10 +12,16 @@ import {
 } from "../../models/products/producstModels.js";
 
 // Cloudinary configuration
-import { v2 } from "cloudinary";
+
+dotenv.config();
 const cloudinary = v2;
 
-cloudinary.config(process.env.CLOUDINARY_URL);
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 
 const productsGetServices = async () => {
   try {
@@ -78,27 +86,19 @@ const newProductsPostServices = async (data) => {
   data.body.count = parseInt(data.body.count);
   data.body.price = parseFloat(data.body.price);
 
-  // Subimos el archivo a cloudinary
   try {
-    // const { secure_url } = await cloudinary.uploader.upload(
-    //   fileImage.tempFilePath,
-    //   {height: 1250, width: 1870, crop: "scale"}
-    // );
-    const { secure_url } = await cloudinary.uploader.upload(
-      fileImage.tempFilePath
-    );
+    const { secure_url } = await cloudinary.uploader.upload(fileImage.tempFilePath);
+    
     data.body.pathImage = secure_url;
-    // Go to newProductModel
-    const response = await newProductModel(data.body);
-    // Got to newProductoInformation by id that return us "newProducModel"
-    const responseInformation = await newProductInformationModel(response.insertId, data.body);
 
+    const response = await newProductModel(data.body);
+    const responseInformation = await newProductInformationModel(response.insertId, data.body);
+   
     return responseInformation;
   } catch (error) {
     return error;
   }
 };
-
 export {
   productsGetServices,
   newProductsGetServices,

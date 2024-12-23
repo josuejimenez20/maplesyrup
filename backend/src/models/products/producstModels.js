@@ -110,7 +110,7 @@ function newProductInformationModel(id_product, data) {
       VALUES ('${id_product}','${in_offer}','0','0','0','${pathImage}','${description}')`,
       function (error, result, field) {
         if (error) return reject(error);
-        return resolve(result);
+        return resolve(result);        
       }
     );
   });

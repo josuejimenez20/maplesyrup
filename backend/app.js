@@ -6,5 +6,3 @@ import Server from "./src/server/server.js";
 const server = new Server();
 
 server.listen();
-
-// El servidor lo iniciamos con npx nodemon app.js

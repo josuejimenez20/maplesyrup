@@ -86,7 +86,6 @@ const productInformationById = async (req, res) => {
 
     let response = await productInformationByIdServices(id);
 
-
     return res.status(200).json({
       response
     })
@@ -99,23 +98,26 @@ const productInformationById = async (req, res) => {
 
 // CREATED
 
-const newProductsPost = async (req = request, res) => {
-  const { name, count, price, typeProduct } = req.body;
-
-  if (!name || !count || !price || !typeProduct) {
+const newProductsPost = async (req = request, res = response) => {
+  const { name, count, price, typeProduct } = req.body;  
+  
+  if (!name || !count || !price || !typeProduct || req.files === null) {
     return res.status(404).json({
       msg: "Necesary Elements: Name, Count, Price, typeProduct and fileImage",
     });
   }
 
   try {
+
     let response = await newProductsPostServices(req);
+
     return res.status(200).json({
       msg: "Product Uploaded",
     });
+
   } catch (error) {
     res.status(500).json({
-      error,
+      error
     });
   }
 };
