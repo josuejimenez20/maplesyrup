@@ -12,7 +12,7 @@ class Server {
       origin: ["http://localhost:5173", "http://localhost:5174"],
       optionsSuccessStatus: 200,
     };
-    this.basePath = "/api/v2";
+    this.basePath = "/api/";
 
     // Conectar a base de datos
     this.conectarDB();
