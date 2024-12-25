@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {Typography} from '@mui/material';
 import { resetDataNewProductProcess } from "../../../redux/slices/managmentProducts/products/newProduct";
 import { AddNewProduct } from "../../../redux/actions/products/AddNewProduct";
 import { FormatFetchData } from "../../../helpers/formatFetchData";
@@ -75,7 +76,7 @@ export function AddProducts() {
                     }}
                 >
                     <div className="form_div">
-                        <h4 className="details_products">Detalles del producto.</h4>
+                        <Typography variant="h5" color="white" className="details_products">Detalles del producto.</Typography>
                         <hr />
                         <br />
                         <label className="name_product formLabel">Nombre del producto</label>
