@@ -8,7 +8,9 @@ import {
   searchProductsByWordModels,
   productInformationByIdModels,
   newProductModel,
-  newProductInformationModel
+  newProductInformationModel,
+  editProductInformationModel,
+  editProductAdditionalInformationModel
 } from "../../models/products/producstModels.js";
 
 // Cloudinary configuration
@@ -79,6 +81,42 @@ const productInformationByIdServices = async (id_product) => {
   }
 }
 
+const editProductInformationService = async (data) => {
+
+  try {
+
+    data.body.count = parseInt(data.body.count);
+    data.body.price = parseFloat(data.body.price);
+
+    if (!data.body.fileImage) {
+
+      const { fileImage } = data.files;
+      const { secure_url } = await cloudinary.uploader.upload(fileImage.tempFilePath);
+
+      data.body.pathImage = secure_url;
+
+      const response = await editProductInformationModel(data.body);
+
+      const responseInformation = await editProductAdditionalInformationModel(data.body);
+
+      return responseInformation
+
+    } else {
+
+      data.body.pathImage = data.body.fileImage;
+
+      const response = await editProductInformationModel(data.body);
+      const responseInformation = await editProductAdditionalInformationModel(data.body);
+      
+      return responseInformation
+    }
+
+
+  } catch (error) {
+    return error;
+  }
+}
+
 //CREATE 
 
 const newProductsPostServices = async (data) => {
@@ -88,12 +126,12 @@ const newProductsPostServices = async (data) => {
 
   try {
     const { secure_url } = await cloudinary.uploader.upload(fileImage.tempFilePath);
-    
+
     data.body.pathImage = secure_url;
 
     const response = await newProductModel(data.body);
     const responseInformation = await newProductInformationModel(response.insertId, data.body);
-   
+
     return responseInformation;
   } catch (error) {
     return error;
@@ -107,4 +145,5 @@ export {
   searchProductsByWordServices,
   productInformationByIdServices,
   newProductsPostServices,
+  editProductInformationService
 };

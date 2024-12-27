@@ -15,9 +15,6 @@ export const RegisterNewUser = (data) => async (dispatch) => {
         dispatch(fetchNewUser());
 
         const response = await axios.post('http://localhost:3001/api/users/new', data);
-
-        console.log(response);
-
         dispatch(fetchNewUserSuccess(response.data));
 
     } catch (error) {

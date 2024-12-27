@@ -8,17 +8,17 @@ export function UltimateUser() {
         <>
             <Stack 
                 direction="row" 
-                spacing={4} // Espaciado entre los botones
+                spacing={4}
                 sx={{
                     display: 'flex',
-                    justifyContent: 'center', // Centra horizontalmente
-                    alignItems: 'center',    // Alinea verticalmente
+                    justifyContent: 'center', 
+                    alignItems: 'center',  
                     mt: 4,  
-                    marginBottom: '1em'                // Espaciado superior opcional
+                    marginBottom: '1em'
                 }}
             >
                 <CustomButtonNavigate label='Agregar Productos' linkTo='AddProducts' />
-                <CustomButtonNavigate label='Editar Producto' linkTo='EditProduct' />
+                <CustomButtonNavigate label='Editar Producto' linkTo='edit-product' />
                 <CustomButtonNavigate label='Administración de Usuarios' linkTo='UserManagement' />
             </Stack>
             <UltimateUserRouter />
