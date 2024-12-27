@@ -6,7 +6,8 @@ import {
   infOfferProductsGetServices,
   topSellProductsGetServices,
   searchProductsByWordServices,
-  productInformationByIdServices
+  productInformationByIdServices,
+  editProductInformationService
 } from "../../services/products/productsServices.js";
 
 const productsGet = async (req = request, res = response) => {
@@ -69,7 +70,7 @@ const searchProductsByWordGet = async (req, res) => {
   try {
     let response = await searchProductsByWordServices(word);
     return res.status(200).json({
-      response
+      data: response
     })
   } catch (error) {
     res.status(500).json({
@@ -84,10 +85,10 @@ const productInformationById = async (req, res) => {
 
   try {
 
-    let response = await productInformationByIdServices(id);
+    let data = await productInformationByIdServices(id);
 
     return res.status(200).json({
-      response
+      data
     })
   } catch (error) {
     return res.status(500).json({
@@ -96,11 +97,27 @@ const productInformationById = async (req, res) => {
   }
 }
 
+const editProductInformationController = async (req, res) => {
+  try {
+    
+    const response = await editProductInformationService(req);
+    
+    return res.status(200).json({
+      msg: "Todo OK"
+    })
+
+  } catch (error) {    
+    return res.status(500).json({
+      msg: "Error from server"
+    })
+  }
+}
+
 // CREATED
 
 const newProductsPost = async (req = request, res = response) => {
-  const { name, count, price, typeProduct } = req.body;  
-  
+  const { name, count, price, typeProduct } = req.body;
+
   if (!name || !count || !price || !typeProduct || req.files === null) {
     return res.status(404).json({
       msg: "Necesary Elements: Name, Count, Price, typeProduct and fileImage",
@@ -131,4 +148,5 @@ export {
   searchProductsByWordGet,
   productInformationById,
   newProductsPost,
+  editProductInformationController
 };

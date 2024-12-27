@@ -66,6 +66,40 @@ function searchProductsByWordModels(wordProduct) {
   });
 }
 
+function editProductInformationModel(productInformation) {
+  const { product_id, name, pathImage,
+    price, count, typeProduct } = productInformation;
+
+  return new Promise((resolve, reject) => {
+    conexion.query(
+      `UPDATE products 
+                  SET name = '${name}', count = '${count}',
+                  typeProduct = '${typeProduct}', price = '${price}', path_image = '${pathImage}'
+                  WHERE products.id_product = ${product_id}`,
+      function (error, result, field) {
+        if (error) return reject(error);
+        return resolve(result);
+      });
+  });
+}
+
+function editProductAdditionalInformationModel(productInformation) {
+  const { product_id, in_offer,
+    description, pathImage } = productInformation;
+
+  return new Promise((resolve, reject) => {
+    conexion.query(
+      `UPDATE product_information 
+                  SET in_offer = '${in_offer}', description = '${description}', 
+                  paths_images = '${pathImage}'
+                  WHERE product_information.id_product = ${product_id}`,
+      function (error, result, field) {
+        if (error) return reject(error);
+        return resolve(result);
+      });
+  });
+}
+
 // TODO: Changed this function
 // Get all data minus id_product from "product_information" table
 // If there is a problem with get information product, we'll have to 
@@ -110,7 +144,7 @@ function newProductInformationModel(id_product, data) {
       VALUES ('${id_product}','${in_offer}','0','0','0','${pathImage}','${description}')`,
       function (error, result, field) {
         if (error) return reject(error);
-        return resolve(result);        
+        return resolve(result);
       }
     );
   });
@@ -139,5 +173,7 @@ export {
   productInformationByIdModels,
   newProductModel,
   newProductInformationModel,
-  setCountProductById
+  setCountProductById,
+  editProductInformationModel,
+  editProductAdditionalInformationModel
 };

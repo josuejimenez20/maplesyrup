@@ -2,8 +2,6 @@
 
 export function addProductToShoppingCart(id_product, title, price, image_path, dataShopping) {
 
-    console.log(id_product, title, price, image_path);
-
     const objectData = {
         id_product,
         title,

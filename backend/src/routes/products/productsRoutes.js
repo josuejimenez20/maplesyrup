@@ -7,6 +7,7 @@ import {
     searchProductsByWordGet,
     productInformationById,
     newProductsPost,
+    editProductInformationController
 } from "../../controllers/products/productsControllers.js";
 
 const router = Router();
@@ -22,6 +23,8 @@ router.get('/InOfferProducts', inOfferProductsGet);
 router.get('/searchProductsByWord/:word', searchProductsByWordGet);
 
 router.get('/productInformationById/:id', productInformationById);
+
+router.post('/edit-product-information', editProductInformationController);
 
 router.post('/AddNewProduct', newProductsPost);
 
