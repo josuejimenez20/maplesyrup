@@ -1,30 +1,46 @@
 import { createTransport } from "nodemailer";
 
-import { productInformationByIdModels, setCountProductById }
-    from "../../models/products/producstModels.js";
+import { productInformationByIdModels, setCountProductById } from "../../models/products/producstModels.js";
+import {
+    getUserIdWithUserIdEncryptedModel,
+    setNewOrderModel,
+    setNewProductToOrderModel,
+    getAllOrdersModel
+} from "../../models/paypal/paypalModels.js";
 
 
 const paypalCreatePaymentServices = async (data) => {
-
-    const { id_product_information, count_products } = data;
-
+    const { id_product_information } = data;
     try {
 
-        const responseInformationProduct = await productInformationByIdModels(id_product_information);
-
-        if (responseInformationProduct[0].count < count_products) {
-            return { msg: "Count minor than number products odered", status: 400 }
+        for (const element of id_product_information) {
+            // const responseSetCountProduct = await setCountProductById(element, 1);
         }
 
-        const product_id = responseInformationProduct[0].id_product;
-        const new_count = responseInformationProduct[0].count - count_products;
+        const user_id = await getUserIdWithUserIdEncryptedModel(data);
 
-        const responseSetCountProduct = await setCountProductById({ product_id, new_count });
+        const newOrderResponse = await setNewOrderModel(user_id[0].id_user, data);
 
-        const responseSenEmailPayer = sendEmailPayerInformationProduct(data);
+        for (const element of id_product_information) {
+            const responseSetCountProduct = await setNewProductToOrderModel(element, data);
+        }
 
-        return responseSenEmailPayer;
+        // Get user id * 
+        // Fill orders information *
+        // Fill order_to_product information *
 
+
+        return { msg: "Order Created", code: 200 };
+    } catch (error) {
+        return error;
+    }
+}
+
+const getAllOrdersService = async () => {
+    try {
+        const data = await getAllOrdersModel();        
+
+        return { msg: "Orders", code: 200, data }
     } catch (error) {
         return error;
     }
@@ -60,6 +76,7 @@ const sendEmailPayerInformationProduct = ({ data }) => {
 }
 
 export {
-    paypalCreatePaymentServices
+    paypalCreatePaymentServices,
+    getAllOrdersService
 }
 

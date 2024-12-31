@@ -8,7 +8,7 @@ import {
     PayPalButtons
 } from "@paypal/react-paypal-js";
 import { GetInformationProductById } from "../../redux/actions/buyProducts/GetInformationProductById";
-import { PaymentProductsNotificationUser } from "../../redux/actions/buyProducts/PaymentProducts";
+import { purchasePayment } from "../../redux/actions/buyProducts/PaymentProducts";
 
 export function PaypalPayment() {
 
@@ -51,13 +51,13 @@ export function PaypalPayment() {
             // This function shows a transaction success message to your buyer.
             // Mandar a una pestaña que diga que se hizo su pago
 
-            dispatch(PaymentProductsNotificationUser({
+            dispatch(purchasePayment({
                 user_id: USER_ID,
                 user_name: USER_NAME,
                 user_email: USER_EMAIL,
                 order_id: ORDER_ID,
                 payer_id: PAYER_ID,
-                id_product_information: id_product_information,
+                id_product_information: [id_product_information],
                 name_product: name,
                 count_products: countProducts,
                 value_payment: VALUE_PAYMENT
@@ -96,7 +96,7 @@ export function PaypalPayment() {
 
             <PayPalScriptProvider
                 options={{
-                    "client-id": "AeL_Ni_kxn2i87lVrbiphqNIKxGfZxzfXaFUzfsFOGtln-TxLTMyYor7otQSFD6VelViSQaacfFJMupv",
+                    "client-id": "AdwcEgPNUMJmHtKqA7LuB6cd6cnRwAjqzji2UswSlRYk2SFti0YK75_2bSxWlES_I021KTfRizVNVu9C",
                     currency: "MXN",
                     intent: "capture"
                 }}>

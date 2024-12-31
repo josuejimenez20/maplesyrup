@@ -175,5 +175,5 @@ export {
   newProductInformationModel,
   setCountProductById,
   editProductInformationModel,
-  editProductAdditionalInformationModel
+  editProductAdditionalInformationModel,
 };

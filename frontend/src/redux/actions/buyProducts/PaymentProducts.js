@@ -8,13 +8,13 @@ import {
 // Function for get all products
 // The function will have a param for get product for parts
 
-export const PaymentProductsNotificationUser = (data_payment) => async (dispatch) => {
-
-    console.log(data_payment);
+export const purchasePayment = (data_payment) => async (dispatch) => {
 
     try {
         dispatch(fetchPaymentProducts());
-        // const { data } = await axios.get(`http://localhost:3001/api/users/information/${id_user}}/${email}/${password}`);
+        const response = await axios.post(`http://localhost:3001/api/paypal/payment`, data_payment);
+        console.log(response);
+
         dispatch(fetchPaymentProductsSuccess(true));
     } catch (error) {
         dispatch(fetchPaymentProductsFailure(error));

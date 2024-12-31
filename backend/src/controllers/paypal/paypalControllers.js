@@ -1,5 +1,6 @@
 import {
-    paypalCreatePaymentServices
+    paypalCreatePaymentServices,
+    getAllOrdersService
 } from "../../services/paypal/paypalServices.js";
 
 
@@ -8,12 +9,6 @@ const paypalPaymentControllers = async (req, res) => {
     try {
 
         let response = await paypalCreatePaymentServices(req.body);
-
-        if (response.status && response.status === 400) {
-            return res.status(400).json({
-                msg: response.msg
-            })
-        }
 
         return res.status(200).json({
             response
@@ -25,7 +20,21 @@ const paypalPaymentControllers = async (req, res) => {
     }
 }
 
+const getAllOrdersController = async (req, res) => {
+    try {
+        const response = await getAllOrdersService();        
+
+        return res.status(200).json({
+            response
+        })
+    } catch (error) {
+        return res.status(500).json({
+            msg: "Error from server"
+        })
+    }
+}
 
 export {
-    paypalPaymentControllers
+    paypalPaymentControllers,
+    getAllOrdersController
 }

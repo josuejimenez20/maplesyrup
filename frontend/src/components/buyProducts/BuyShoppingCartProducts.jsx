@@ -1,21 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
     PayPalScriptProvider,
     PayPalButtons
 } from "@paypal/react-paypal-js";
 import { Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
+import { purchasePayment } from "../../redux/actions/buyProducts/PaymentProducts";
+
 import '../../styles/buyProducts/buyShoppingCartProduct.css';
 
 export function BuyShoppingCartProducts() {
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+   
     let TOTAL_PRICE = 0;
+    let PRODUCT_IDS = [];
+    let PRODUCT_NAMES = [];
+    let PRODUCT_QUANTITY = 0;
 
     const elementsShoppingCart = JSON.parse(localStorage.getItem("shopping_cart")) || null;
 
     elementsShoppingCart.forEach(element => {
         TOTAL_PRICE += element.price;
+        PRODUCT_IDS.push(element.id_product);
+        PRODUCT_NAMES.push(element.title);
+        PRODUCT_QUANTITY += 1;
     });
+
+    useEffect(() => {
+        console.log(elementsShoppingCart);
+    }, [elementsShoppingCart])
+
+    const USER_EMAIL = localStorage.getItem('email');
+    const USER_ID = localStorage.getItem('id_user');
+    const USER_NAME = localStorage.getItem('names');
 
     const createOrderHandler = (data, actions) => {
         // Set up the transaction
@@ -41,16 +62,16 @@ export function BuyShoppingCartProducts() {
             // This function shows a transaction success message to your buyer.
             // Mandar a una pestaña que diga que se hizo su pago
 
-            dispatch(PaymentProductsNotificationUser({
+            dispatch(purchasePayment({
                 user_id: USER_ID,
                 user_name: USER_NAME,
                 user_email: USER_EMAIL,
                 order_id: ORDER_ID,
                 payer_id: PAYER_ID,
-                id_product_information: id_product_information,
-                name_product: name,
-                count_products: countProducts,
-                value_payment: VALUE_PAYMENT
+                id_product_information: PRODUCT_IDS,
+                name_product: PRODUCT_NAMES,
+                count_products: PRODUCT_QUANTITY,
+                value_payment: TOTAL_PRICE
             }));
             navigate(`/PaypalPaymentOneProduct/MessageSuccess`);
             // window.location.reload();
@@ -97,7 +118,7 @@ export function BuyShoppingCartProducts() {
                     }}>Precio Total: {TOTAL_PRICE}</Typography>
                 <PayPalScriptProvider
                     options={{
-                        "client-id": "AeL_Ni_kxn2i87lVrbiphqNIKxGfZxzfXaFUzfsFOGtln-TxLTMyYor7otQSFD6VelViSQaacfFJMupv",
+                        "client-id": "AdwcEgPNUMJmHtKqA7LuB6cd6cnRwAjqzji2UswSlRYk2SFti0YK75_2bSxWlES_I021KTfRizVNVu9C",
                         currency: "MXN",
                         intent: "capture"
                     }}>
