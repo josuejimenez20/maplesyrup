@@ -13,7 +13,6 @@ export const purchasePayment = (data_payment) => async (dispatch) => {
     try {
         dispatch(fetchPaymentProducts());
         const response = await axios.post(`http://localhost:3001/api/paypal/payment`, data_payment);
-        console.log(response);
 
         dispatch(fetchPaymentProductsSuccess(true));
     } catch (error) {

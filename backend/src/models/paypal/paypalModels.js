@@ -53,6 +53,7 @@ function getAllOrdersModel() {
     o.order_id,
     p.name AS product_name,
     p.price,
+    p.path_image,
     po.quantity,
     d.city,
     d.postal_code,
