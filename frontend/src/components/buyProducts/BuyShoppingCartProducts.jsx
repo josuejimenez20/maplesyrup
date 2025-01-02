@@ -30,10 +30,6 @@ export function BuyShoppingCartProducts() {
         PRODUCT_QUANTITY += 1;
     });
 
-    useEffect(() => {
-        console.log(elementsShoppingCart);
-    }, [elementsShoppingCart])
-
     const USER_EMAIL = localStorage.getItem('email');
     const USER_ID = localStorage.getItem('id_user');
     const USER_NAME = localStorage.getItem('names');

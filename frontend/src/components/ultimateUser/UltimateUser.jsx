@@ -19,7 +19,7 @@ export function UltimateUser() {
             >
                 <CustomButtonNavigate label='Agregar Productos' linkTo='AddProducts' />
                 <CustomButtonNavigate label='Editar Producto' linkTo='edit-product' />
-                <CustomButtonNavigate label='Administración de Usuarios' linkTo='UserManagement' />
+                <CustomButtonNavigate label='Pedidos' linkTo='order-management' />
             </Stack>
             <UltimateUserRouter />
         </>

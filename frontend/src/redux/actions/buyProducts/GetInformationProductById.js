@@ -14,8 +14,6 @@ export const GetInformationProductById = (id_product) => async (dispatch) => {
         const { data } = await axios.get(`http://localhost:3001/api/products/productInformationById/${id_product}`);
         dispatch(fetchInformationProductSuccess(data.data[0]));
     } catch (error) {
-        console.log(error);
-
         dispatch(fetchInformationProductFaulire("Error al obtener la informacion del producto"));
     }
 }
