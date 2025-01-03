@@ -4,9 +4,7 @@ import {
     fetchNewUserSuccess,
     fetchNewFaulire
 } from "../../slices/users/newUserSlice";
-
-// Register users
-// params: Data
+const apiEndpoint = import.meta.env.VITE_API_ENDPOINT;
 
 export const RegisterNewUser = (data) => async (dispatch) => {
 
@@ -14,7 +12,7 @@ export const RegisterNewUser = (data) => async (dispatch) => {
 
         dispatch(fetchNewUser());
 
-        const response = await axios.post('http://localhost:3001/api/users/new', data);
+        const response = await axios.post(`${apiEndpoint}/users/new`, data);
         dispatch(fetchNewUserSuccess(response.data));
 
     } catch (error) {

@@ -1,13 +1,17 @@
-import mysql from "mysql";
+import mysql from "mysql2";
+import dotenv from "dotenv";
+
+dotenv.config(); 
+
 const conexion = mysql.createConnection({
-    host: 'localhost',
-    database: 'maplesyrup',
-    user: 'root',
-    password: 'johnwick2003',
+    host: process.env.DATABASE_HOST,
+    database: process.env.DATABASE_NAME,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
 });
 
 const dbConnection = () => {
-    conexion.connect(function (err) {
+    conexion.connect((err) => {
         if (err) {
             console.error('Error de conexion: ' + err.stack);
             return;
@@ -16,8 +20,4 @@ const dbConnection = () => {
     });
 }
 
-export {
-    dbConnection,
-    conexion
-}
-
+export { dbConnection, conexion };
