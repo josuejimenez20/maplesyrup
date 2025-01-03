@@ -31,7 +31,7 @@ export function ShoppingCart() {
     useEffect(() => {
 
     }, [])
-    const elementsShoppingCart = JSON.parse(localStorage.getItem("shopping_cart")) || null;
+    const elementsShoppingCart = JSON.parse(localStorage.getItem("shopping_cart")) || [];
 
 
     return (<>
