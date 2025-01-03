@@ -4,6 +4,7 @@ import {
     fetchProductsFailure,
     fetchProductsSuccess,
 } from "../../slices/managmentProducts/products/listProductsSlice";
+const apiEndpoint = import.meta.env.VITE_API_ENDPOINT;
 
 // Function for get all products
 // The function will have a param for get product for parts
@@ -12,7 +13,7 @@ export const GetProductsByWord = (word) => async (dispatch) => {
 
     try {
         dispatch(fetchProducts());
-        const { data } = await axios.get(`http://localhost:3001/api/products/searchProductsByWord/${word}`);
+        const { data } = await axios.get(`${apiEndpoint}/products/searchProductsByWord/${word}`);
         dispatch(fetchProductsSuccess(data.response));
     } catch (error) {
         dispatch(fetchProductsFailure(error));

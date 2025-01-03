@@ -7,7 +7,7 @@ import router from "../routes/index.js"
 class Server {
   constructor() {
     this.app = express();
-    this.port = process.env.PORT || 3001;
+    this.port = process.env.PORT || 3000;
     this.corsOptions = {
       origin: ["http://localhost:5173", "http://localhost:5174"],
       optionsSuccessStatus: 200,
