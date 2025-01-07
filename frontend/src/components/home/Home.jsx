@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container, Box } from '@mui/material';
 import { HomeRoute } from '../../router/home/HomeRouter';
 import { CustomButtonNavigate } from '../shared/atoms/CustomButtonNavigate';
-import { CustomInput } from '../shared/atoms/customInput';
+import { CustomInput } from '../shared/atoms/CustomInput';
 import { FcSearch } from 'react-icons/fc';
 
 import { GetProductsByWord } from '../../redux/actions/home/GetProductsByWord';
