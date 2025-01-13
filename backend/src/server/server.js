@@ -9,7 +9,7 @@ class Server {
     this.app = express();
     this.port = process.env.PORT || 3000;
     this.corsOptions = {
-      origin: ["http://localhost:5173", "http://localhost:5174"],
+      origin: "*",
       optionsSuccessStatus: 200,
     };
     this.basePath = "/api/";
