@@ -16,7 +16,7 @@
               sudo git clone https://github.com/josuejimenez20/maplesyrup.git /usr/bin/maplesyrup
               cd /usr/bin/maplesyrup/backend
 
-              RDS_ENDPOINT=${var.db_instance_endpoint}
+              RDS_ENDPOINT="${var.db_instance_endpoint}"
               sudo rm -f .env
               sudo bash -c "cat > .env <<EOF
               CLOUDINARY_URL=cloudinary://638174394713967:jHto0FeQeH_6qIsZT3Mm7oSUEhQ@dtmtbvid9
@@ -26,7 +26,7 @@
               CLOUDINARY_API_KEY=638174394713967
               CLOUDINARY_API_SECRET=jHto0FeQeH_6qIsZT3Mm7oSUEhQ
 
-              DATABASE_HOST=$RDS_ENDPOINT
+              DATABASE_HOST=$(echo "$RDS_ENDPOINT" | cut -d ':' -f 1)
               DATABASE_NAME=maplesyrup
               DATABASE_USER=root
               DATABASE_PASSWORD=johnwick2003
@@ -121,21 +121,22 @@ resource "aws_security_group" "alb_sg" {
 resource "aws_alb" "web-server-alb" {
   subnets         = [var.public_subnet_1_id, var.public_subnet_2_id, var.private_subnet_id]
   security_groups = [aws_security_group.alb_sg.id]
+
+  depends_on = [aws_instance.web-server, aws_alb_target_group.web-server-target-group]
 }
 
 resource "aws_alb_target_group" "web-server-target-group" {
-  name          = "web-server-target-group"
-  port          = 3000
-  protocol      = "HTTP"
-  vpc_id        = var.vpc_id
+  name     = "web-server-target-group"
+  port     = 3000
+  protocol = "HTTP"
+  vpc_id   = var.vpc_id
 
-   health_check {
-    enabled       = true
-    interval      = 300
-    timeout       = 5    
-    path          = "/api/health-check" 
-    protocol      = "HTTP" 
-    port          = "3000"
+  health_check {
+    enabled             = true
+    interval            = 30
+    timeout             = 5
+    path                = "/api/health-check"
+    protocol            = "HTTP"
     unhealthy_threshold = 3
   }
 }
@@ -157,4 +158,52 @@ resource "aws_lb_target_group_attachment" "tg_attachment" {
     port             = 3000  
 
     depends_on       = [aws_instance.web-server]
+}
+
+resource "aws_s3_bucket" "key_storage" {
+  bucket = "my-key-pair-storage-bucket"
+  acl    = "private"
+
+  versioning {
+    enabled = true
+  }
+
+  # server_side_encryption_configuration {
+  #   rule {
+  #     apply_server_side_encryption_by_default {
+  #       sse_algorithm = "AES256"
+  #     }
+  #   }
+  # }
+
+  tags = {
+    Name = "Key Pair Storage"
+  }
+}
+
+# Generar la clave privada y pública con Terraform
+resource "tls_private_key" "frontend-key-pair" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+# Crear una Key Pair en AWS usando la clave pública
+resource "aws_key_pair" "frontend-key-pair" {
+  key_name   = "frontend-key-pair"
+  public_key = tls_private_key.frontend-key-pair.public_key_openssh
+}
+
+# Subir la clave privada al bucket S3
+resource "aws_s3_object" "private_key" {
+  bucket       = aws_s3_bucket.key_storage.id
+  key          = "keys/frontend-key-pair.pem"
+  content      = tls_private_key.frontend-key-pair.private_key_pem
+  content_type = "text/plain"
+
+  server_side_encryption = "AES256"
+}
+
+output "private_key_s3_path" {
+  value = "s3://${aws_s3_bucket.key_storage.bucket}/keys/frontend-key-pair.pem"
+  sensitive = true
 }

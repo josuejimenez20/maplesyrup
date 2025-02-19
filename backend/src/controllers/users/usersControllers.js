@@ -36,7 +36,8 @@ const newUserController = async (req, res) => {
 
   try {
 
-    const uniqueID = uuid.v4();
+    const uniqueID = uuid();
+    
     let response = await newUserPostServices(uniqueID, req.body);
 
     return res.status(200).json({
@@ -46,7 +47,7 @@ const newUserController = async (req, res) => {
       password
     })
 
-  } catch (error) {
+  } catch (error) {    
     return res.status(500).json({
       msg: "error creating user"
     })

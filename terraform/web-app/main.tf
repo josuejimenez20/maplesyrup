@@ -18,7 +18,7 @@ resource "aws_instance" "web_app" {
               sudo rm -f /home/ec2-user/maplesyrup/frontend/.env
               cd /home/ec2-user/maplesyrup/frontend
               sudo bash -c "cat > .env <<EOF
-              VITE_API_ENDPOINT=http://${var.alb-web-server-dns-name}/api
+              VITE_API_ENDPOINT=http://${ var.web-server-alb.dns_name}/api
               EOF"
 
               cd /home/ec2-user/maplesyrup/frontend
