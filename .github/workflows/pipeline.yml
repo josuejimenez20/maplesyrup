@@ -1,0 +1,41 @@
+name: Deploy to maplesyrup frontend EC2
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    name: Deploy Frontend
+    runs-on: ubuntu-latest
+    steps:
+      # Paso 1: Clonar el repositorio
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Paso 2: Instalar dependencias
+      - name: Install dependencies
+        working-directory: ./frontend/
+        run: npm install
+
+      # Paso 3: Configurar clave SSH
+      - name: Add SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      # Paso 4: Transferir archivos a EC2
+      - name: Deploy to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ec2-user
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: '22'
+          source: ./frontend/
+          target: /home/ec2-user/maplesyrup/
+
+      # Paso 5: Reiniciar PM2
+      - name: Restart PM2
+        run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@${{ secrets.HOST }} 'pm2 restart 0'

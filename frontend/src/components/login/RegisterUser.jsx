@@ -31,7 +31,7 @@ export function RegisterUser() {
             email: data.target.mail.value,
             password: data.target.password.value,
         }
-        dispatch(RegisterNewUser(formData))
+        dispatch(RegisterNewUser(formData))        
     }
 
     if (success) {
