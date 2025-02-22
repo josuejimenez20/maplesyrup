@@ -57,12 +57,13 @@ function inOfferProductsGetModels() {
 function searchProductsByWordModels(wordProduct) {
   return new Promise((resolve, reject) => {
     conexion.query(`
-                  SELECT * FROM products p
-                  WHERE p.name OR p.typeProduct 
-                  LIKE '${wordProduct}%'`, function (error, result, field) {
-      if (error) return reject(error);
-      return resolve(result);
-    });
+                SELECT * FROM products p
+                  WHERE p.name LIKE '%${wordProduct}%' 
+                  OR p.typeProduct LIKE '%${wordProduct}%';`,
+      function (error, result, field) {
+        if (error) return reject(error);
+        return resolve(result);
+      });
   });
 }
 
