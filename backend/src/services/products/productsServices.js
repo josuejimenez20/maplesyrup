@@ -63,7 +63,7 @@ const infOfferProductsGetServices = async () => {
 
 const searchProductsByWordServices = async (wordProduct) => {
   try {
-    let response = await searchProductsByWordModels(wordProduct);
+    let response = await searchProductsByWordModels(wordProduct);    
     return response;
   } catch (error) {
     return error;
